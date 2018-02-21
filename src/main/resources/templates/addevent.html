@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <title>Event creation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h3>Welcome, Enter The Event Details</h3>
+        <form action="#" th:action="@{/addevent}" th:object="${event}" method="post">
+        <p>Title: <input type="text" th:field="*{title}" /></p>
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+    </body>
+</html>
