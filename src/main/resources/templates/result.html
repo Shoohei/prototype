@@ -7,7 +7,11 @@
 <body>
 	<h1>Result</h1>
     <p th:text="'id: ' + ${event.id}" />
-    <p th:text="'title ' + ${event.title}" />
+    <p th:text="'title: ' + ${event.title}" />
+    <p th:text="'image: ' + ${event.image}" />
+    
+    <p><img alt="Image" th:src="@{${'/image/' + event.id}}" width="250" height="250"/></p>
+    
     <a href="/addevent">Create another event</a>
 </body>
 </html>

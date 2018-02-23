@@ -33,6 +33,8 @@ public class EventEntity {
 	
 	@Column(name = "priceevents")
 	private String price;
+
+	private String image;
 	
 	/**
 	 * @return the id
@@ -173,8 +175,4 @@ public class EventEntity {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
-	private String image;
-
-	
 }
