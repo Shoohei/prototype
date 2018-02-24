@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fnsystems.prototype.business.event.EventService;
 import com.fnsystems.prototype.persistence.event.EventEntity;
-import com.fnsystems.prototype.persistence.event.EventRepository;
 import com.fnsystems.prototype.persistence.storage.StorageService;
 
 @Controller
@@ -27,8 +27,8 @@ public class EventController {
     private StorageService storageService;
     
 	@Autowired
-	private EventRepository eventRepository;
-
+	private EventService eventService;
+	
     @GetMapping("/addevent")
 	public String initForm(ModelMap model) {
 		// Empty entity
@@ -50,7 +50,7 @@ public class EventController {
 		event.setPrice("price");
 		event.setWhen("when");
 		event.setWhere("where");
-		event = eventRepository.save(event);
+		event = eventService.save(event);
 		
 		// Store the file
 		storageService.store(file, String.valueOf(event.getId()));

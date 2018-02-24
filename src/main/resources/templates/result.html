@@ -12,6 +12,6 @@
     
     <p><img alt="Image" th:src="@{${'/image/' + event.id}}" width="250" height="250"/></p>
     
-    <a href="/addevent">Create another event</a>
+    <a th:href="@{/addevent}">Create another event</a>
 </body>
 </html>

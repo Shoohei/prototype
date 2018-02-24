@@ -5,11 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <h3>Welcome, Enter The Event Details</h3>
-        <form action="#" th:action="@{/addevent}" th:object="${event}" method="post" enctype="multipart/form-data">
-        <p>Title: <input type="text" th:field="*{title}" /></p>
-        <p>Image: <input type="file" name="file" /></p>
-        <p><input type="submit" value="Submit" /></p>
-    </form>
+        <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]], Enter The Event Details</h3>
+	        <form action="#" th:action="@{/addevent}" th:object="${event}" method="post" enctype="multipart/form-data">
+	        <p>Title: <input type="text" th:field="*{title}" /></p>
+	        <p>Image: <input type="file" name="file" /></p>
+	        <p><input type="submit" value="Submit" /></p>
+	    </form>
+    
+    	<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
     </body>
 </html>

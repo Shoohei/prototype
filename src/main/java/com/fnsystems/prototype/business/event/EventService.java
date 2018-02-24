@@ -1,5 +1,7 @@
 package com.fnsystems.prototype.business.event;
 
+import java.util.List;
+
 import com.fnsystems.prototype.persistence.event.EventEntity;
 
 /**
@@ -13,4 +15,10 @@ public interface EventService {
 	 * @return The event saved
 	 */
 	public EventEntity save(EventEntity event);
+
+	/**
+	 * Return all the events
+	 * @return The events
+	 */
+	public List<EventEntity> getEvents();
 }

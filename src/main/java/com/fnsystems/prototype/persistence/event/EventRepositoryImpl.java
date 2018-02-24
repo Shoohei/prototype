@@ -2,6 +2,7 @@ package com.fnsystems.prototype.persistence.event;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -51,8 +52,8 @@ public class EventRepositoryImpl implements EventRepository {
 
 	@Override
 	public Iterable<EventEntity> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT e FROM EventEntity e");
+	    return query.getResultList();
 	}
 
 	@Override
