@@ -23,4 +23,9 @@ public class EventServiceImpl implements EventService {
 	public List<EventEntity> getEvents() {
 		return (List<EventEntity>) eventRepository.findAll();
 	}
+
+	@Override
+	public EventEntity getEvent(Long id) {
+		return eventRepository.findOne(id);
+	}
 }

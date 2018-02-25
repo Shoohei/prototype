@@ -21,4 +21,11 @@ public interface EventService {
 	 * @return The events
 	 */
 	public List<EventEntity> getEvents();
+
+	/**
+	 * Return the event by the id
+	 * @param id The id
+	 * @return The event
+	 */
+	public EventEntity getEvent(Long id);
 }

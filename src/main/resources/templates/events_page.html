@@ -1,0 +1,10 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h1>Events</h1>
+
+	<tr th:each="event : ${events}">
+		<a th:href="@{${'/result/' + event.id}}"><td th:text="${event.title}">zz</td></a><br/>
+	</tr>
+
+</body>
+</html>

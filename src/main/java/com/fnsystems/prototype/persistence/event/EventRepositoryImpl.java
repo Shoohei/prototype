@@ -63,9 +63,11 @@ public class EventRepositoryImpl implements EventRepository {
 	}
 
 	@Override
-	public EventEntity findOne(Long arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public EventEntity findOne(Long id) {
+		Query query = em.createQuery("SELECT e FROM EventEntity e WHERE e.id = :id");
+		query.setParameter("id", id);
+		
+	    return (EventEntity) query.getSingleResult();
 	}
 
 	@Override

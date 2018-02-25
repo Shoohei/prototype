@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fnsystems.prototype.business.event.EventService;
 import com.fnsystems.prototype.persistence.event.EventEntity;
@@ -61,11 +62,33 @@ public class EventController {
 		return "result";
 	}
 	
+	@GetMapping(value = "/result/{eventId}")
+	public String getEvent(@PathVariable(value="eventId") String eventId, ModelMap model) throws IOException {
+		
+		EventEntity event = eventService.getEvent(Long.valueOf(eventId));
+		
+		model.addAttribute("event", event);
+		
+		// View's name
+		return "result";
+	}
+	
 	@RequestMapping(value = "/image/{imageId}")
 	@ResponseBody
 	public byte[] loadImage(@PathVariable String imageId) throws IOException  {
 	  Path image = storageService.load(imageId);
 	  
 	  return Files.readAllBytes(image);
+	}
+	
+    @GetMapping("/events")
+	public ModelAndView getEvents(ModelMap model) {
+    	ModelAndView modelAndView = new ModelAndView("events_page");
+    	
+		modelAndView.addObject("events", eventService.getEvents());
+		
+		modelAndView.addObject("test1", "Test1");
+ 
+		return modelAndView;
 	}
 }
