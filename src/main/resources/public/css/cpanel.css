@@ -1,0 +1,41 @@
+﻿@charset "utf-8";
+
+/*LOGIN*/
+.logo-center {
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+
+.logo-size {
+    width: 30%;
+}
+
+.label-color {
+    color: seagreen;
+}
+
+.button-color {
+    background-color: red;
+    color: aliceblue;
+}
+
+/*GALLERY*/
+.div-gallerypanel {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+    text-align:center
+}
+
+    .div-gallerypanel img {
+        width: 100%;
+        height: auto;
+    }
+
+/*EVENTS*/
+.content-row{
+    text-align:center;
+    margin-top:20px
+}

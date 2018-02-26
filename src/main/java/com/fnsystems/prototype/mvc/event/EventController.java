@@ -41,16 +41,11 @@ public class EventController {
 
 	@PostMapping(value = "/addevent")
 	public String submit(@ModelAttribute EventEntity event, ModelMap model, @RequestParam("file") MultipartFile file) throws IOException {
-		
-		// Add fake value in order to store
-		event.setDescription("description");
-		event.setHow("how");
+
+		// Add the image to the event
 		event.setImage(file.getOriginalFilename());
-		event.setLatitude("latitude");
-		event.setLongitude("longitude");
-		event.setPrice("price");
-		event.setWhen("when");
-		event.setWhere("where");
+		
+		// Store the event
 		event = eventService.save(event);
 		
 		// Store the file
